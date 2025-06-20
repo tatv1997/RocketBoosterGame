@@ -2,6 +2,7 @@ using System;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class CollisionHandler : MonoBehaviour
 {
@@ -10,7 +11,8 @@ public class CollisionHandler : MonoBehaviour
     [SerializeField] AudioClip successSound;
     [SerializeField] ParticleSystem successParticles;
     [SerializeField] ParticleSystem crashParticles;
-    
+    [SerializeField] InputAction nextlevelkey;
+
 
     AudioSource audioSource;
     
@@ -23,6 +25,10 @@ public class CollisionHandler : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
+    private void Update()
+    {
+        RespondToDebugKeys();
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -84,7 +90,21 @@ public class CollisionHandler : MonoBehaviour
         SceneManager.LoadScene(nextScene);
  
     }
-        
+      
+private void OnEnable()
+    {
+        nextlevelkey.Enable();
+    }
+    
+    void RespondToDebugKeys()
+    {
+        if (Keyboard.current.lKey.isPressed)
+        {
+            LoadNextLevel();
+            Debug.Log("L key pressed - Reloading level");
+        }
+                
+    }
         
         
     void ReloadLevel()

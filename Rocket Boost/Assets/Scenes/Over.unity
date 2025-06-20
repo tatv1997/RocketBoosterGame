@@ -788,6 +788,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4082221106850957810, guid: 964c7a96dba9ed747b1ac399d4c75e58, type: 3}
+      propertyPath: nextlevelkey.m_Name
+      value: Nextlevelkey
+      objectReference: {fileID: 0}
+    - target: {fileID: 4082221106850957810, guid: 964c7a96dba9ed747b1ac399d4c75e58, type: 3}
+      propertyPath: nextlevelkey.m_SingletonActionBindings.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4082221106850957810, guid: 964c7a96dba9ed747b1ac399d4c75e58, type: 3}
+      propertyPath: nextlevelkey.m_SingletonActionBindings.Array.data[0].m_Id
+      value: d4c30cb5-4bc6-4745-bbdb-6b4699e9cb27
+      objectReference: {fileID: 0}
+    - target: {fileID: 4082221106850957810, guid: 964c7a96dba9ed747b1ac399d4c75e58, type: 3}
+      propertyPath: nextlevelkey.m_SingletonActionBindings.Array.data[0].m_Path
+      value: <Keyboard>/l
+      objectReference: {fileID: 0}
+    - target: {fileID: 4082221106850957810, guid: 964c7a96dba9ed747b1ac399d4c75e58, type: 3}
+      propertyPath: nextlevelkey.m_SingletonActionBindings.Array.data[0].m_Action
+      value: Nextlevelkey
+      objectReference: {fileID: 0}
     - target: {fileID: 4090179249191719357, guid: 964c7a96dba9ed747b1ac399d4c75e58, type: 3}
       propertyPath: m_Name
       value: Player Rocket
