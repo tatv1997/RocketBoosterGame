@@ -18,7 +18,7 @@ public class CollisionHandler : MonoBehaviour
     
 
     bool isControllable = true;
-
+    bool isCollidable = true;
 
     private void Start()
     {
@@ -30,9 +30,30 @@ public class CollisionHandler : MonoBehaviour
         RespondToDebugKeys();
     }
 
+    private void OnEnable()
+    {
+        nextlevelkey.Enable();
+    }
+
+    void RespondToDebugKeys()
+    {
+        if (Keyboard.current.lKey.wasPressedThisFrame)
+        {
+            LoadNextLevel();
+            Debug.Log("L key pressed - Reloading level");
+        }
+        else if (Keyboard.current.cKey.wasPressedThisFrame)
+        {
+            isCollidable = !isCollidable;
+            Debug.Log("C key was pressed");
+        }
+
+    }
+
+
     private void OnCollisionEnter(Collision collision)
     {
-        if (!isControllable) { return; }
+        if (!isControllable || !isCollidable) { return; }
         
         switch (collision.gameObject.tag)
         {
@@ -90,23 +111,6 @@ public class CollisionHandler : MonoBehaviour
         SceneManager.LoadScene(nextScene);
  
     }
-      
-private void OnEnable()
-    {
-        nextlevelkey.Enable();
-    }
-    
-    void RespondToDebugKeys()
-    {
-        if (Keyboard.current.lKey.isPressed)
-        {
-            LoadNextLevel();
-            Debug.Log("L key pressed - Reloading level");
-        }
-                
-    }
-        
-        
     void ReloadLevel()
     {
         int currentScene = SceneManager.GetActiveScene().buildIndex;
