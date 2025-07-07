@@ -304,6 +304,15 @@ MonoBehaviour:
   successSound: {fileID: 8300000, guid: 9959c6282cd12ea4f94414ec9a2a0df5, type: 3}
   successParticles: {fileID: 6199636289145205554}
   crashParticles: {fileID: 1887389859054419812}
+  nextlevelkey:
+    m_Name: Nextlevelkey
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 19a35957-e121-4212-9b96-f4a5fa113978
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
 --- !u!1001 &1797342216505455012
 PrefabInstance:
   m_ObjectHideFlags: 0

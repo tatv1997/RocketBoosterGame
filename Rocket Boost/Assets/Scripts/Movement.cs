@@ -65,7 +65,7 @@ public class Movement : MonoBehaviour
     private void ProcessRotation()
     {
         float rotationInput = rotation.ReadValue<float>();
-        if (rotationInput < 0)
+        if (rotationInput > 0)
         {
             ApplyRotation(rotationStrength);
             if (!rightboosterParticles.isPlaying)
@@ -75,7 +75,7 @@ public class Movement : MonoBehaviour
             }
 
         }
-        else if (rotationInput > 0)
+        else if (rotationInput < 0)
         {
             ApplyRotation(-rotationStrength);
             if (!leftboosterParticles.isPlaying)
