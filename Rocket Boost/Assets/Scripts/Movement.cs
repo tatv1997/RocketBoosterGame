@@ -36,30 +36,35 @@ public class Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        ProcessThrust();
-        ProcessRotation();
-    }
-
-    private void ProcessThrust()
-    {
         if (thrust.IsPressed())
         {
-            rb.AddRelativeForce(Vector3.up * thrustStrength * Time.fixedDeltaTime);
-            if (!audioSource.isPlaying)
-            {
-                audioSource.PlayOneShot(mainEngine);
-            }
-            if (!mainboosterParticles.isPlaying)
-            {
-                mainboosterParticles.Play();
-            }
-            
+            ProcessThrust();
         }
         else
         {
-            audioSource.Stop();
-            mainboosterParticles.Stop();
+            StopThrust();
         }
+        ProcessRotation();
+    }
+
+    public void ProcessThrust()
+    {
+        
+        rb.AddRelativeForce(Vector3.up * thrustStrength * Time.fixedDeltaTime);
+        if (!audioSource.isPlaying)
+        {
+            audioSource.PlayOneShot(mainEngine);
+        }
+        if (!mainboosterParticles.isPlaying)
+        {
+            mainboosterParticles.Play();
+        }
+    }
+
+    public void StopThrust()
+    {
+        audioSource.Stop();
+        mainboosterParticles.Stop();
     }
 
     private void ProcessRotation()
@@ -75,6 +80,7 @@ public class Movement : MonoBehaviour
             }
 
         }
+
         else if (rotationInput < 0)
         {
             ApplyRotation(-rotationStrength);
