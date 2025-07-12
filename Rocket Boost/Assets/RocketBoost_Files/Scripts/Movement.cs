@@ -67,28 +67,41 @@ public class Movement : MonoBehaviour
         mainboosterParticles.Stop();
     }
 
+
+    public void RotateRocketRight()
+    {
+        ApplyRotation(rotationStrength);
+        if (!rightboosterParticles.isPlaying)
+        {
+            leftboosterParticles.Stop();
+            rightboosterParticles.Play();
+        }
+
+    }
+
+    public void RotateRocketLeft()
+    {
+        ApplyRotation(-rotationStrength);
+        if (!leftboosterParticles.isPlaying)
+        {
+            rightboosterParticles.Stop();
+            leftboosterParticles.Play();
+        }
+    }
+
+
     private void ProcessRotation()
     {
         float rotationInput = rotation.ReadValue<float>();
         if (rotationInput > 0)
         {
-            ApplyRotation(rotationStrength);
-            if (!rightboosterParticles.isPlaying)
-            {
-                leftboosterParticles.Stop();
-                rightboosterParticles.Play();
-            }
+            RotateRocketRight();
 
         }
 
         else if (rotationInput < 0)
         {
-            ApplyRotation(-rotationStrength);
-            if (!leftboosterParticles.isPlaying)
-            {
-                rightboosterParticles.Stop();
-                leftboosterParticles.Play();
-            }
+            RotateRocketLeft();
         }
         else 
         {
