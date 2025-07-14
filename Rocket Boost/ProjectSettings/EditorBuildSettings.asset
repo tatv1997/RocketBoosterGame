@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/RocketBoost_Files/Scenes/Over.unity
+    path: Assets/RocketBoost_Files/Scenes/Prototype_Level.unity
     guid: 8b787d9dfee967547afd9e99af0b4014
   - enabled: 1
     path: Assets/RocketBoost_Files/Scenes/Under.unity
