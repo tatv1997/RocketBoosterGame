@@ -75,6 +75,15 @@ public class CollisionHandler : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "Deadly")
+        {
+            StartCrashSequence();
+            Debug.Log("You crashed! Reloading level...");
+        }
+    }
+
     void StartSuccessSequence()
     {
         // TODO: Add SFX and particles
